@@ -1,0 +1,26 @@
+{
+  "name": "web-app",
+  "version": "4.1.10",
+  "private": true,
+  "scripts": {
+    "check": "node --check worker.js",
+    "deploy": "wrangler deploy"
+  },
+  "cloudflare": {
+    "bindings": {
+      "KV": {
+        "description": "Nova's compatibility and migration store. Cloudflare creates and binds it automatically."
+      },
+      "DB": {
+        "description": "Nova's primary D1 database for settings, users, usage, logs, and authentication."
+      },
+      "PAGES_URL": {
+        "description": "Static Nova Panel origin. Keep the default unless you operate your own reviewed panel build."
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "wrangler": "^4.116.0"
+  }
+}
